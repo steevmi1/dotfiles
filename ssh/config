@@ -1,0 +1,18 @@
+##  ssh applies these top-down, so anything you want to override from the global defaults needs to appear
+##  before the wildcard host section.
+
+Host github.com
+    PubkeyAuthentication yes
+    IdentityFile ~/.ssh/steevmi1_github-rsa
+
+Host *
+    Compression yes
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%l-%r@%h:%p
+    ControlPersist 1m
+    ForwardAgent no
+    ForwardX11 no
+    IdentitiesOnly yes
+    PubkeyAuthentication no
+    ServerAliveCountMax 10
+    ServerAliveInterval 30
