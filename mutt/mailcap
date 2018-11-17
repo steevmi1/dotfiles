@@ -1,0 +1,4 @@
+text/html; w3m -I %{charset} -T text/html; copiousoutput
+text/plain; cat; copiousoutput
+text/csv; column -s, -t; copiousoutput
+text/column-separated-values; column -s, -t; copiousoutput

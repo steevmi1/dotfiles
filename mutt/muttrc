@@ -1,0 +1,88 @@
+##  Default account
+source ~/.mutt/account.settings
+
+# global settings
+set		mailcap_path	=	~/.mutt/mailcap
+set   mbox_type   = maildir
+set   charset     = utf-8
+set   editor      = "`~/.mutt/scripts/editor.sh`"
+set   visual      = $editor
+##set   mail_check  = 0
+set   timeout     = 3
+set   sleep_time  = 0
+set   menu_scroll
+set   beep_new
+set   quit
+unset wait_key
+unset move
+
+# index
+set   sort           = threads
+set   sort_browser   = alpha
+set   sort_aux       = last-date-received
+set   sort_alias     = alias
+set   status_chars   = " *%A"
+set   status_format  = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set   date_format    = "%m/%d"
+set   index_format   = "[%Z]  %D  %-20.20F  %s"
+set   reply_regexp   = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set   strict_threads
+set   uncollapse_jump
+unset collapse_unread
+unset mark_old
+set   reverse_alias
+set   delete
+unset confirmappend
+
+# viewing mail
+set   pager_index_lines = 11
+set   pager_context     = 3
+set   pager_stop
+set   smart_wrap
+set   tilde
+set   thorough_search
+set   pipe_decode
+set   rfc2047_parameters
+set   auto_tag
+unset markers
+auto_view text/html
+alternative_order text/plain text/html
+
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+# sending mail
+set send_charset   = utf-8
+set forward_format = "Fwd: %s"
+set sendmail_wait  = 0
+set reply_to       = yes
+set envelope_from
+set sig_on_top
+set sig_dashes
+set askcc
+set forward_quote
+set fast_reply
+set reverse_name
+set include
+set forward_quote
+
+# sidebar
+set sidebar_format        = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_delim_chars   = "./"
+set sidebar_indent_string = " "
+set sidebar_visible
+set sidebar_folder_indent
+set sidebar_short_path
+set sidebar_sort_method = path
+set mail_check_stats
+
+# notmuch search
+#set nm_default_uri = notmuch://$HOME/.mail
+#macro index \\\\ "<vfolder-from-query>" "Search mailbox"
+
+set folder_format = "%2C  %N  %f"
+
+source ~/.mutt/zenburn.muttrc
+source ~/.mutt/keys.muttrc
