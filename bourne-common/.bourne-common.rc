@@ -1,0 +1,42 @@
+# vim: filetype=sh
+# things common to bourne shells (interactive only)
+
+LS='ls'
+if [ "$(uname)" = 'Linux' ] ; then
+  LS='ls --color=auto'
+elif [ "$(uname)" = 'OpenBSD' ] && command -v colorls > /dev/null ; then
+  LS='colorls'
+fi
+alias ls="$LS -FHh"
+alias ll='ls -l'
+alias la='ls -lA'
+alias ..='cd ..'
+alias ...='cd ...'
+alias mkdir='mkdir -p'
+alias df='df -h'
+alias du='du -ch'
+alias weather='curl http://wttr.in/New_York'
+command -v neomutt > /dev/null && alias mutt='neomutt'
+[ "$(uname)" != 'OpenBSD' ] && alias grep='grep --color=auto'
+
+case "$(uname)" in
+  OpenBSD) SUDO='doas' ;;
+  *)       SUDO='sudo -E' ;;
+esac
+alias svim="$SUDO vim"
+alias svi="$SUDO vi"
+
+# colored man pages
+man() {
+  LESS_TERMCAP_md=$'\e[01;31m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[01;47;30m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[01;32m' \
+  command man "$@"
+}
+
+if command -v dircolors > /dev/null && [ -f $HOME/.dircolors ] ; then
+  eval "$(dircolors "$HOME/.dircolors")"
+fi
