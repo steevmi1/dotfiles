@@ -1,0 +1,14 @@
+set showmode
+set showmatch
+set ruler
+set shiftwidth=2
+set tabstop=2
+set verbose
+set leftright
+set extended
+set iclower
+set searchincr
+set tildeop
+set report=1
+set cedit=\
+set filec=\
