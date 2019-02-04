@@ -47,10 +47,22 @@ if test -d $HOME/miniconda3; then
     export PATH=$HOME/miniconda3/bin:$PATH
 fi
 
-##if test -f '/Users/steevmi1/lib/azure-cli/az.completion'; then
-##    source '/Users/steevmi1/lib/azure-cli/az.completion'
-##fi
-
 gpip() {
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
+
+##  For homebrew
+if test -d /usr/local/opt/ruby/lib; then
+  LDFLAGS="-L/usr/local/opt/ruby/lib"
+  CPPFLAGS="-I/usr/local/opt/ruby/include"
+fi
+
+if test -d /usr/local/opt/ruby/lib/pkgconfig; then
+  PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+fi
+
+if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
+  PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
+fi
+
+export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
