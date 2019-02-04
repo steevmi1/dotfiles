@@ -11,7 +11,7 @@ export ZSH="/Users/steevmi1/.oh-my-zsh"
 ZSH_THEME="spaceship"
 
 ##  Settings for spaceship theme
-export SPACESHIP_TIME_SHOW=true
+##export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_USER_SHOW=always
 export SPACESHIP_HOST_SHOW=always
 export SPACESHIP_BATTERY_SHOW=always
