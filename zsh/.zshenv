@@ -53,12 +53,19 @@ gpip() {
 
 ##  For homebrew
 if test -d /usr/local/opt/ruby/lib; then
-  LDFLAGS="-L/usr/local/opt/ruby/lib"
-  CPPFLAGS="-I/usr/local/opt/ruby/include"
+  LDFLAGS="-L/usr/local/opt/ruby/lib "$LDFLAGS
+  CPPFLAGS="-I/usr/local/opt/ruby/include "$CPPFLAGS
+fi
+if test -d /usr/local/opt/openblas/lib; then
+  LDFLAGS="-L/usr/local/opt/openblas/lib "$LDFLAGS
+  CPPFLAGS="-I/usr/local/opt/openblas/include "$CPPFLAGS
 fi
 
 if test -d /usr/local/opt/ruby/lib/pkgconfig; then
-  PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+  PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig":$PKG_CONFIG_PATH
+fi
+if test -d /usr/local/opt/openblas/lib/pkgconfig; then
+  PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig":$PKG_CONFIG_PATH
 fi
 
 if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
