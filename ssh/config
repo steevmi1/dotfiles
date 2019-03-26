@@ -8,7 +8,7 @@ Host github.com
 Host *
     Compression yes
     ControlMaster auto
-    ControlPath ~/.ssh/master-%l-%r@%h:%p
+    ControlPath ~/.ssh/master-%r@%C
     ControlPersist 1m
     ForwardAgent no
     ForwardX11 no
