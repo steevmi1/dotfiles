@@ -26,13 +26,9 @@ fi
 
 if test -f /usr/local/opt/lmod/init/zsh; then
     . /usr/local/opt/lmod/init/zsh
-    if test -d $HOME/.local/modules; then
-        module use $HOME/.local/modules
-        module load aws/accounts/SciComp-HPC_dev
-        module load aws/regions/us-east-1
-        module load NIBR/proxies/GLOBAL
+    if test -d $HOME/modules; then
+        module use $HOME/modules
         module load mac/homebrew
-        module load steevmi1
     fi
     if test -d $HOME/.local/easybuild/modules; then
         module use $HOME/.local/easybuild/modules/all
