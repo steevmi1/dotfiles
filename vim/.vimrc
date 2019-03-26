@@ -45,8 +45,8 @@ map <leader>= mzgg=G`z<CR>
 noremap H :bp<CR>
 noremap L :bn<CR>
 nnoremap <leader><space> :noh<cr>
-map P :.,$!fmt -75^M
-map p !}fmt -75^M
+map P :.,$!fmt -75
+map p !}fmt -75
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -83,4 +83,4 @@ let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
