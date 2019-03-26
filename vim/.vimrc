@@ -60,9 +60,25 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
+" These two added from https://castel.dev/post/lecture-notes-1/
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
 call plug#end()
 
 colors zenburn
 
 let g:airline_symbols_ascii = 1
 set noshowmode
+
+" For vimtex
+let g:tex_flavor='latex'
+" let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+" For UltiSnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
