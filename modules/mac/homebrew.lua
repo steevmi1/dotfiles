@@ -1,0 +1,51 @@
+-- Module file for setting up homebrew
+
+-- Fix the PATH
+prepend_path("PATH", "/usr/local/sbin")
+prepend_path("PATH", "/usr/local/opt/coreutils/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/binutils/bin")
+prepend_path("PATH", "/usr/local/opt/ed/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/findutils/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/gettext/bin")
+prepend_path("PATH", "/usr/local/opt/gnu-indent/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/gnu-sed/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/gnu-tar/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/gnu-which/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/openssl/bin")
+prepend_path("PATH", "/usr/local/opt/grep/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/sqlite/bin")
+prepend_path("PATH", "/usr/local/opt/ruby/bin")
+prepend_path("PATH", "/usr/local/opt/ncurses/bin")
+prepend_path("PATH", "/usr/local/opt/llvm/bin")
+prepend_path("PATH", "/usr/local/opt/m4/bin")
+prepend_path("PATH", "/usr/local/opt/make/libexec/gnubin")
+prepend_path("PATH", "/usr/local/opt/file-formula/bin")
+prepend_path("PATH", "/usr/local/opt/apr/bin")
+prepend_path("PATH", "/usr/local/opt/apr-util/bin")
+prepend_path("PATH", "/usr/local/opt/unzip/bin")
+
+-- Set LDFLAGS to pick up things we're installing via homebrew
+prepend_path("LDFLAGS", "-L/usr/local/opt/binutils/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/gettext/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/libffi/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/ncurses/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/openssl/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/readline/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/ruby/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/sqlite/lib", " ")
+prepend_path("LDFLAGS", "-L/usr/local/opt/zlib/lib", " ")
+
+-- Set CPPFLAGS to pick up things we're installing via homebrew
+prepend_path("CPPFLAGS", "-I/usr/local/opt/binutils/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/gettext/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/llvm/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/ncurses/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/openssl/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/readline/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/ruby/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/sqlite/include", " ")
+prepend_path("CPPFLAGS", "-I/usr/local/opt/zlib/include", " ")
+
+-- To fix a bug
+prepend_path("PKG_CONFIG_PATH", "/usr/local/opt/libffi/lib/pkgconfig")
