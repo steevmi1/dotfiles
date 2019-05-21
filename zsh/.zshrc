@@ -92,6 +92,10 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+##if test -f /usr/local/bin/chef; then
+##  eval "$(chef shell-init zsh)"
+##fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -100,4 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="$(which colorls)"
+if command -v colorls > /dev/null ; then
+  LS='colorls'
+else
+  LS='ls'
+fi
+##  Callum has base ls calling "-FHh", however colorls doesn't recognize two of the three....
+alias ls="$LS"
+alias ll='ls -l'
+alias la='ls -lA'
