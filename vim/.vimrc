@@ -45,8 +45,8 @@ map <leader>= mzgg=G`z<CR>
 noremap H :bp<CR>
 noremap L :bn<CR>
 nnoremap <leader><space> :noh<cr>
-map R :.,$!fmt -75
-map r !}fmt -75
+map B :.,$!fmt -75
+map b !}fmt -75
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
