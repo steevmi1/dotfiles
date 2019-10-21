@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 name = Michael Steeves
 email = michael@steeves.io
+[http]
+	cookiefile = /Users/michael/.gitcookies
