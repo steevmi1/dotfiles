@@ -2,28 +2,6 @@ setopt no_global_rcs
 
 fpath=($HOME/.zsh $fpath)
 
-function start_agent {
-    echo "Initializing new ssh agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > $SSH_ENV
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-
-# Source SSH settings, if applicable
-
-if [ "X${hns}X" = "Xuscalx1114X" ]; then
-    if [ -f "${SSH_ENV}" ]; then
-	. "${SSH_ENV}" > /dev/null
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-	    start_agent;
-	}
-    else
-	start_agent;
-    fi 
-fi
-
 if test -f /usr/local/opt/lmod/init/zsh; then
     . /usr/local/opt/lmod/init/zsh
     if test -d $HOME/modules; then
@@ -69,3 +47,7 @@ if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
 fi
 
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
+/usr/local/bin/gpgconf --launch gpg-agent
