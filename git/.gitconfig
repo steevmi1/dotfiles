@@ -3,6 +3,5 @@
 # Please adapt and uncomment the following lines:
 name = Michael Steeves
 email = michael@steeves.io
-	signingkey = 0x6BA8DFADD5EE2E15
 [http]
 	cookiefile = /Users/michael/.gitcookies
