@@ -37,6 +37,11 @@ man() {
   command man "$@"
 }
 
+ssh-key-add() {
+  ssh-keyscan -H -t rsa,ed25519 $1 2>&1 | sort -u - ~/.ssh/known_hosts > $HOME/tmp/known_hosts.tmp
+  mv $HOME/tmp/known_hosts.tmp $HOME/.ssh/known_hosts
+}
+
 if command -v dircolors > /dev/null && [ -f $HOME/.dircolors ] ; then
   eval "$(dircolors "$HOME/.dircolors")"
 fi
