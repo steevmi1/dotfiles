@@ -51,3 +51,6 @@ export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
 /usr/local/bin/gpgconf --launch gpg-agent
+
+# Tell homebrew to not autoupdate every single time I run it (just once a week).
+export HOMEBREW_AUTO_UPDATE_SECS=604800
