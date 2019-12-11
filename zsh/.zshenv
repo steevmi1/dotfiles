@@ -54,3 +54,5 @@ export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
 
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
+
+alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
