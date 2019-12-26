@@ -1,5 +1,8 @@
 setopt no_global_rcs
 
+source "$HOME/.bourne-common.profile"
+source "$HOME/.bourne-common.rc"
+
 fpath=($HOME/.zsh $fpath)
 
 if test -f /usr/local/opt/lmod/init/zsh; then
