@@ -8,7 +8,7 @@ fpath=($HOME/.zsh $fpath)
 if test -f /usr/local/opt/lmod/init/zsh; then
     . /usr/local/opt/lmod/init/zsh
     if test -d $HOME/.local/modules; then
-        module use $HOME/modules
+        module use $HOME/.local/modules
         module load mac/homebrew
     fi
     if test -d $HOME/.local/easybuild/modules; then
