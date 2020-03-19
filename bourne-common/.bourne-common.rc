@@ -63,7 +63,11 @@ fi
 # create our own hardlink to the socket (with random name)
 source ~/.ssh/.agent_env
 MYSOCK=/tmp/ssh_agent.${RANDOM}.sock
-ln -T $SSH_AUTH_SOCK $MYSOCK
+if test -f /usr/local/opt/coreutils/libexec/gnubin/ln; then
+  /usr/local/opt/coreutils/libexec/gnubin/ln -T $SSH_AUTH_SOCK $MYSOCK
+else
+  ln -T $SSH_AUTH_SOCK $MYSOCK
+fi
 export SSH_AUTH_SOCK=$MYSOCK
 
 end_agent()
