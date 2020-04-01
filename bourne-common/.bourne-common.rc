@@ -61,24 +61,24 @@ if [[ "$agent" == "" || ! -e ~/.ssh/.agent_env ]]; then
 fi
 
 # create our own hardlink to the socket (with random name)
-source ~/.ssh/.agent_env
-MYSOCK=/tmp/ssh_agent.${RANDOM}.sock
-if test -f /usr/local/opt/coreutils/libexec/gnubin/ln; then
-  /usr/local/opt/coreutils/libexec/gnubin/ln -T $SSH_AUTH_SOCK $MYSOCK
-else
-  ln -T $SSH_AUTH_SOCK $MYSOCK
-fi
-export SSH_AUTH_SOCK=$MYSOCK
-
-end_agent()
-{
-    # if we are the last holder of a hardlink, then kill the agent
-    nhard=`ls -l $SSH_AUTH_SOCK | awk '{print $2}'`
-    if [[ "$nhard" -eq 2 ]]; then
-        rm ~/.ssh/.agent_env
-        ssh-agent -k
-    fi
-    rm $SSH_AUTH_SOCK
-}
-trap end_agent EXIT
-set +x
+##source ~/.ssh/.agent_env
+##MYSOCK=/tmp/ssh_agent.${RANDOM}.sock
+##if test -f /usr/local/opt/coreutils/libexec/gnubin/ln; then
+  ##/usr/local/opt/coreutils/libexec/gnubin/ln -T $SSH_AUTH_SOCK $MYSOCK
+##else
+  ##ln -T $SSH_AUTH_SOCK $MYSOCK
+##fi
+##export SSH_AUTH_SOCK=$MYSOCK
+##
+##end_agent()
+##{
+    ### if we are the last holder of a hardlink, then kill the agent
+    ##nhard=`ls -l $SSH_AUTH_SOCK | awk '{print $2}'`
+    ##if [[ "$nhard" -eq 2 ]]; then
+        ##rm ~/.ssh/.agent_env
+        ##ssh-agent -k
+    ##fi
+    ##rm $SSH_AUTH_SOCK
+##}
+##trap end_agent EXIT
+##set +x
