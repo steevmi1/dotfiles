@@ -1,9 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
   name = Michael Steeves
+  email = steeves@raingods.net
 
 [http]
-	cookiefile = /Users/michael/.gitcookies
+	cookiefile = /home/steevmi1/.gitcookies
 
 [color]
     ui = true
