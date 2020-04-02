@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/ruby/bin:$PATH
+export PATH=${PATH}:/sbin/:/usr/sbin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mike/.oh-my-zsh"
@@ -68,7 +68,7 @@ export SPACESHIP_BATTERY_SHOW=always
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew python ruby tmux)
+plugins=(ansible brew git python ruby tmux)
 
 source $ZSH/oh-my-zsh.sh
 
