@@ -1,5 +1,15 @@
 ##  Default account
-source ~/.mutt/account.settings
+source ~/.mutt/account.net.raingods.steeves
+
+folder-hook 'account.com.pair.msteeves' 'source ~/.mutt/account.com.pair.msteeves'
+folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
+folder-hook 'account.net.raingods.neomutt' 'source ~/.mutt/account.net.raingods.neomutt'
+
+# Macros for switching accounts
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><change-folder>!<enter>'
+##macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.neomutt<enter><change-folder>!<enter>'
 
 # global settings
 set		mailcap_path	=	~/.mutt/mailcap
@@ -24,7 +34,7 @@ set   sort_alias     = alias
 set   status_chars   = " *%A"
 set   status_format  = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set   date_format    = "%m/%d"
-set   index_format   = "[%Z]  %D  %-20.20F  %s"
+set   index_format   = "[%Z]  %D  %-20.20F %?K?%15.14K&               ? %s"
 set   reply_regexp   = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set   strict_threads
 set   uncollapse_jump
