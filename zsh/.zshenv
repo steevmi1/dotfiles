@@ -1,11 +1,14 @@
 setopt no_global_rcs
 
+source "$HOME/.bourne-common.profile"
+source "$HOME/.bourne-common.rc"
+
 fpath=($HOME/.zsh $fpath)
 
 if test -f /usr/local/opt/lmod/init/zsh; then
     . /usr/local/opt/lmod/init/zsh
-    if test -d $HOME/modules; then
-        module use $HOME/modules
+    if test -d $HOME/.local/modules; then
+        module use $HOME/.local/modules
         module load mac/homebrew
     fi
     if test -d $HOME/.local/easybuild/modules; then

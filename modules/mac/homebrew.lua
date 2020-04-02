@@ -1,6 +1,7 @@
 -- Module file for setting up homebrew
 
 -- Fix the PATH
+prepend_path("PATH", "/usr/local/bin")
 prepend_path("PATH", "/usr/local/sbin")
 prepend_path("PATH", "/usr/local/opt/coreutils/libexec/gnubin")
 -- prepend_path("PATH", "/usr/local/opt/binutils/bin")
