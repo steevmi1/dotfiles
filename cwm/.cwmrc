@@ -134,8 +134,6 @@ bind-mouse 4S-2 window-hide
 # these commands will appear in the command menu
 command xterm				xterm
 command firefox			firefox
-command thunderbird thunderbird
-command keepassxc		keepassxc
 
 # ignore these windows when tiling/cycling
 ignore xclock
