@@ -1,13 +1,15 @@
 ##  Default account
 source ~/.mutt/account.net.raingods.steeves
 
-folder-hook 'account.com.pair.msteeves' 'source ~/.mutt/account.com.pair.msteeves'
+
+folder-hook 'account.net.raingods.steeves' 'source ~/.mutt/account.net.raingods.steeves'
+##folder-hook 'account.com.pair.msteeves' 'source ~/.mutt/account.com.pair.msteeves'
 folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
-folder-hook 'account.net.raingods.neomutt' 'source ~/.mutt/account.net.raingods.neomutt'
+##folder-hook 'account.net.raingods.neomutt' 'source ~/.mutt/account.net.raingods.neomutt'
 
 # Macros for switching accounts
 macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><change-folder>!<enter>'
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><change-folder>!<enter>'
+##macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><change-folder>!<enter>'
 ##macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.neomutt<enter><change-folder>!<enter>'
 
