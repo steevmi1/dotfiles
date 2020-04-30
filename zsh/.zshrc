@@ -68,7 +68,7 @@ export SPACESHIP_BATTERY_SHOW=always
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible brew git python ruby tmux)
+plugins=(ansible brew git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
