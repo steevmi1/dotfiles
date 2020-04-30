@@ -49,6 +49,10 @@ if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
   PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
 fi
 
+if test -d $HOME/Library/Python/3.7/bin; then
+  PATH=$HOME/Library/Python/3.7/bin:${PATH}
+fi
+
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
 
 export GPG_TTY="$(tty)"
@@ -59,3 +63,5 @@ export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
 alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
+
+export RDBASE=/usr/local/share/RDKit
