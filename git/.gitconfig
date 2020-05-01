@@ -1,29 +1,4 @@
-# This is Git's per-user configuration file.
-[user]
-  name = Michael Steeves
-  email = steeves@raingods.net
-
-[http]
-	cookiefile = /home/steevmi1/.gitcookies
-
-[color]
-    ui = true
-
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-
-[color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = red
-
-[alias]
-  pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+[includeIf "gitdir:~/src/work"]
+  path = .gitconfig-work
+[includeIf "gitdir:~/src/personal"]
+  path = .gitconfig-personal
