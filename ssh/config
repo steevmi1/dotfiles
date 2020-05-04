@@ -1,7 +1,8 @@
 ##  ssh applies these top-down, so anything you want to override from the global defaults needs to appear
 ##  before the wildcard host section.
 
-Host github.com
+Host github.com-personal
+  HostName github.com
   User git
   ControlMaster no
   IdentitiesOnly yes
