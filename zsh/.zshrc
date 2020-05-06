@@ -115,4 +115,6 @@ alias ll='colorls -l'
 alias lc='colorls -lA --sd'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+if test -f ~/.p10k.zsh; then
+  source ~/.p10k.zsh
+fi
