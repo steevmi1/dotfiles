@@ -1,7 +1,11 @@
 setopt no_global_rcs
 
-source "$HOME/.bourne-common.profile"
-source "$HOME/.bourne-common.rc"
+if test -f $HOME/.bourne-common.profile; then
+  source "$HOME/.bourne-common.profile"
+fi
+if test -f $HOME/.bourne-common.rc; then
+  source "$HOME/.bourne-common.rc"
+fi
 
 fpath=($HOME/.zsh $fpath)
 
@@ -55,13 +59,13 @@ fi
 
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
-/usr/local/bin/gpgconf --launch gpg-agent
+if test -f /usr/local/bin/gpgconf; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
+  /usr/local/bin/gpgconf --launch gpg-agent
+  alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
+fi
 
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
-alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
-
-export RDBASE=/usr/local/share/RDKit
