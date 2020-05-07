@@ -53,8 +53,8 @@ if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
   PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
 fi
 
-if test -d $HOME/Library/Python/3.7/bin; then
-  PATH=$HOME/Library/Python/3.7/bin:${PATH}
+if test -d $HOME/Library/Python/3.8/bin; then
+  PATH=$HOME/Library/Python/3.8/bin:${PATH}
 fi
 
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
