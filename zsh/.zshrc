@@ -124,3 +124,10 @@ fi
 if test -d /usr/local/Cellar/python@3.8/3.8.2; then
   PATH=/usr/local/Cellar/python@3.8/3.8.2/bin:${PATH}
 fi
+##  Add in for RDkit if it's installed. Should move this to a module.
+if test -d $HOME/RDkit/2020_03_01; then
+  RDBASE=$HOME/RDkit/2020_03_01
+  PYTHONPATH=$HOME/RDkit/2020_03_01/lib/python3.8/site-packages:${PYTHONPATH}
+  DYLD_LIBRARY_PATH=$RDBASE/lib:${DYLD_LIBRARY_PATH}
+  export RDBASE PYTHONPATH DYLD_LIBRARY_PATH
+fi
