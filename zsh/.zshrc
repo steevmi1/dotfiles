@@ -118,3 +118,9 @@ alias lc='colorls -lA --sd'
 if test -f ~/.p10k.zsh; then
   source ~/.p10k.zsh
 fi
+
+##  At the moment the Homebrew python3 is Python 3.7.x, but boost-python3 and numpy both want python@3.8.
+##  Since python@3.8 is keg-only and doesn't symlink into /usr/local, trying this to see if things work.
+if test -d /usr/local/Cellar/python@3.8/3.8.2; then
+  PATH=/usr/local/Cellar/python@3.8/3.8.2/bin:${PATH}
+fi
