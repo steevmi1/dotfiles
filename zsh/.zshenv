@@ -69,6 +69,7 @@ fi
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
-alias wx='curl '\''wttr.in/North Easton US'\'''
-alias wx2='curl '\''v2.wttr.in/North Easton US'\'''
-alias wxt='curl '\''wttr.in/North Easton US'\''\?format=3'
+alias wx='curl '\''wttr.in/North Easton\ MA\ US'\'''
+alias wx2='curl '\''v2.wttr.in/North Easton\ MA\ US'\'''
+alias wxt='curl '\''wttr.in/North Easton\ MA\ US'\''\?format=3'
+alias wxm='curl '\''wttr.in/North Easton\ MA\ US'\''\?1pFn'
