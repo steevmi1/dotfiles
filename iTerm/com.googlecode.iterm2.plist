@@ -1601,12 +1601,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>0 163 224 275 0 0 2560 1417 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>1610 888 620 392 0 0 3840 1577 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 805 920 612 0 0 2560 1417 </string>
+	<string>0 705 920 872 0 0 3840 1577 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>921 805 920 612 0 0 2560 1417 </string>
+	<string>921 575 920 1002 0 0 3840 1577 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>709 101 920 1002 0 0 3840 1577 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>352 144 920 1002 0 0 3840 1577 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2177,7 +2181,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>InconsolataNerdFontComplete-Regular 14</string>
+			<string>Inconsolata-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2244,27 +2248,31 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
+		<string>3.3.7</string>
 		<string>3.3.9</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Inconsolata Nerd Font</string>
-		<string>Menlo</string>
+		<string>Inconsolata</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {3840, 1600}}</string>
 		<key>topLeft</key>
-		<string>{958, 1135}</string>
+		<string>{1598, 1235}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
-	<string>56541CDC-70BD-43A5-A4E9-87BD4C49A222</string>
+	<string>1FEC9424-ACB0-4130-AA86-B9FD5A17A3B7</string>
+	<key>NoSyncLastTipTime</key>
+	<real>610568428.38610804</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>1</integer>
+	<integer>3</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>610345660.21190798</real>
+	<real>610654824.63679695</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
+	<true/>
+	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
@@ -2989,7 +2997,11 @@
 		</array>
 	</dict>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
-	<real>610172860.21170998</real>
+	<real>610058628.69859004</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+	</array>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -3027,12 +3039,20 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>~/src/personal/dotfiles/iTerm</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=21</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=15</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
+	<key>SULastCheckTime</key>
+	<date>2020-05-07T18:20:16Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>SUUpdateRelaunchingMarker</key>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
