@@ -69,7 +69,11 @@ fi
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
-alias wx='curl '\''wttr.in/North Easton\ MA\ US'\'''
-alias wx2='curl '\''v2.wttr.in/North Easton\ MA\ US'\'''
-alias wxt='curl '\''wttr.in/North Easton\ MA\ US'\''\?format=3'
-alias wxm='curl '\''wttr.in/North Easton\ MA\ US'\''\?1pFn'
+alias wx='curl '\''wttr.in/North Easton\ MA\ US?m'\'''
+alias wx2='curl '\''v2.wttr.in/North Easton\ MA\ US?m'\'''
+alias wxt='curl '\''wttr.in/North Easton\ MA\ US'\''\?format=3m'
+alias wxm='curl '\''wttr.in/North Easton\ MA\ US'\''\?1pFnm'
+
+if test -f ./src/personal/gruvbox/gruvbox_256palette_osx.sh; then
+  source ./src/personal/gruvbox/gruvbox_256palette_osx.sh
+fi
