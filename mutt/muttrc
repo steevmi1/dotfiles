@@ -2,16 +2,19 @@
 source ~/.mutt/account.net.raingods.steeves
 
 
-folder-hook 'account.net.raingods.steeves' 'source ~/.mutt/account.net.raingods.steeves'
+##folder-hook 'account.net.raingods.steeves' 'source ~/.mutt/account.net.raingods.steeves'
 ##folder-hook 'account.com.pair.msteeves' 'source ~/.mutt/account.com.pair.msteeves'
-folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
-##folder-hook 'account.net.raingods.neomutt' 'source ~/.mutt/account.net.raingods.neomutt'
+##folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
 
 # Macros for switching accounts
-macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><change-folder>!<enter>'
-##macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><change-folder>!<enter>'
-##macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.net.raingods.neomutt<enter><change-folder>!<enter>'
+macro index <f1> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><sync-m
+macro index <f2> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><sync-mail
+macro index <f3> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><s
+
+ set imap_check_subscribed = yes
+ set imap_authenticators = plain
+
+ set my_imap_done = true
 
 # global settings
 set		mailcap_path	=	~/.mutt/mailcap
