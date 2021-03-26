@@ -39,6 +39,8 @@ set shiftwidth=2      " tab width = 2 spaces
 set tabstop=2
 set softtabstop=2
 
+set termguicolors
+
 set pastetoggle=<F2>  " F2 to toggle paste mode
 nnoremap <leader>q gqip
 map <leader>= mzgg=G`z<CR>
@@ -65,9 +67,12 @@ Plug 'airblade/vim-gitgutter'
 " These two added from https://castel.dev/post/lecture-notes-1/
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
-colors zenburn
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='hard'
 
 let g:airline_symbols_ascii = 1
 set noshowmode
