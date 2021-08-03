@@ -68,6 +68,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'gruvbox-community/gruvbox'
+Plug 'manabuishii/vim-cwl'
 call plug#end()
 
 colorscheme gruvbox
