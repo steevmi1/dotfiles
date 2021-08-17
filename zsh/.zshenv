@@ -77,3 +77,5 @@ alias wxm='curl '\''wttr.in/North Easton\ MA\ US'\''\?1pFnm'
 if test -f ./src/personal/gruvbox/gruvbox_256palette_osx.sh; then
   source ./src/personal/gruvbox/gruvbox_256palette_osx.sh
 fi
+
+eval "$(/usr/libexec/path_helper)"
