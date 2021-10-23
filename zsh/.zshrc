@@ -131,3 +131,19 @@ if test -d $HOME/RDkit/2020_03_01; then
   DYLD_LIBRARY_PATH=$RDBASE/lib:${DYLD_LIBRARY_PATH}
   export RDBASE PYTHONPATH DYLD_LIBRARY_PATH
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

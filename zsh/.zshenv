@@ -78,4 +78,8 @@ if test -f ./src/personal/gruvbox/gruvbox_256palette_osx.sh; then
   source ./src/personal/gruvbox/gruvbox_256palette_osx.sh
 fi
 
+if test -f /usr/local/anaconda3/bin/conda; then
+  export PATH=/usr/local/anaconda3/bin:$PATH
+fi
+
 eval "$(/usr/libexec/path_helper)"
