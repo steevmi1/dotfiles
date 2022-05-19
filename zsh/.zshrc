@@ -8,13 +8,13 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+##ZSH_THEME="ys"
 
 ##  Settings for spaceship theme
 ##export SPACESHIP_TIME_SHOW=true
-export SPACESHIP_USER_SHOW=always
-export SPACESHIP_HOST_SHOW=always
-export SPACESHIP_BATTERY_SHOW=always
+##export SPACESHIP_USER_SHOW=always
+##export SPACESHIP_HOST_SHOW=always
+##export SPACESHIP_BATTERY_SHOW=always
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -132,18 +132,4 @@ if test -d $HOME/RDkit/2020_03_01; then
   export RDBASE PYTHONPATH DYLD_LIBRARY_PATH
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+eval "$(starship init zsh)"
