@@ -1,0 +1,85 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$time\
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+##  Bump command_timeout a bit
+command_timeout = 1000
+
+[aws]
+symbol = "  "
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[conda]
+symbol = " "
+
+[directory]
+format = "in [$read_only]($read_only_style)[$path]($style) "
+read_only = " "
+style = "blue"
+truncation_length = 5
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+
+[git_status]
+ahead      = "⇡${count}"
+diverged   = "⇕⇡${ahead_count}⇣${behind_count}"
+behind     = "⇣${count}"
+conflicted = "=${count}"
+untracked  = "?${count}"
+stashed    = "\\$${count}"
+modified   = "!${count}"
+staged     = "+${count}"
+renamed    = "»${count}"
+deleted    = "✘${count}"
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold red) "
+
+[line_break]
+disabled = false
+
+[localip]
+ssh_only = false
+format = "@[$localipv4](bold red) "
+
+[memory_usage]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
+format = "via [$symbol($version)]($style)"
+
+[shlvl]
+symbol = " "
+
+[time]
+disabled = false
+time_format = "%F %R"
+
+[username]
+style_user = "green bold"
+style_root = "red_bold"
+disabled = false
+show_always = true
+format = "[$user]($style) "
