@@ -3,6 +3,7 @@ $username\
 $hostname\
 $shlvl\
 $directory\
+$python\
 $git_branch\
 $git_commit\
 $git_state\
@@ -65,6 +66,7 @@ symbol = " "
 
 [python]
 symbol = " "
+pyenv_version_name = true
 
 [rlang]
 symbol = "ﳒ "
