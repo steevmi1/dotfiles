@@ -1,6 +1,9 @@
 # vim: filetype=sh
 # things common to bourne shells (interactive only)
 
+##echo "Entering .bourne-common.rc...."
+##echo "MANPATH is ${MANPATH}"
+
 LS='ls'
 if [ "$(uname)" = 'Linux' ] ; then
   LS='ls --color=auto'
@@ -82,3 +85,6 @@ fi
 ##}
 ##trap end_agent EXIT
 ##set +x
+
+##echo "Exiting .bourne-common.rc...."
+##echo "MANPATH is ${MANPATH}"
