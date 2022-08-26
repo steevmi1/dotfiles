@@ -1,6 +1,9 @@
 # vim: filetype=sh
 # things common to bourne shells
 
+##echo "Entering .bourne-common.profile...."
+##echo "MANPATH is ${MANPATH}"
+
 case "$(command -v vim)" in
   */vim) VIM=vim ;;
   *)     VIM=vi  ;;
@@ -17,3 +20,6 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
 export GPG_TTY=$(tty)
+
+##echo "Exiting .bourne-common.profile...."
+##echo "MANPATH is ${MANPATH}"
