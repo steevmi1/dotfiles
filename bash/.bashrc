@@ -1,3 +1,13 @@
+##echo "Entering .bashrc...."
+##echo "MANPATH is ${MANPATH}"
+
+##  Results in adding /usr/share/man twice, but at least makes sure that I have system man pages in there.
+if test -z $MANPATH; then
+  export MANPATH=/usr/share/man
+else
+  export MANPATH=${MANPATH}:/usr/share/man
+fi
+
 [ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 
 source "$HOME/.bourne-common.profile"
@@ -28,3 +38,9 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/~}\007"'
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
     . /opt/local/etc/profile.d/bash_completion.sh
 fi
+
+if test -f $HOME/bin/starship; then
+    eval "$(starship init bash)"
+fi
+##echo "Exiting .bashrc...."
+##echo "MANPATH is ${MANPATH}"
