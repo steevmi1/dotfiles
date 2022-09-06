@@ -9,6 +9,13 @@ Host github.com-personal
   IdentityFile ~/.ssh/id_ed25519
   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
 
+Host bitbucket.org
+  User steevesmvrtx
+  ControlMaster no
+  VerifyHostKeyDNS no
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+
 Host *
   #ControlMaster auto
   #ControlPath ~/.ssh/master-%r@%h:%p
