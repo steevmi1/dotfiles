@@ -1,5 +1,7 @@
 setopt no_global_rcs
 
+##echo "Hit zshenv -- path is $PATH"
+
 if test -f $HOME/.bourne-common.profile; then
   source "$HOME/.bourne-common.profile"
 fi
@@ -9,23 +11,15 @@ fi
 
 fpath=($HOME/.zsh $fpath)
 
-if test -f /usr/local/opt/lmod/init/zsh; then
-    . /usr/local/opt/lmod/init/zsh
+if test -f /opt/homebrew/opt/lmod/init/zsh; then
+    . /opt/homebrew/opt/lmod/init/zsh
     if test -d $HOME/.local/modules; then
         module use $HOME/.local/modules
-        module load mac/homebrew
+##        module load mac/homebrew
     fi
     if test -d $HOME/.local/easybuild/modules; then
         module use $HOME/.local/easybuild/modules/all
     fi
-fi
-
-if test -d /usr/X11/bin; then
-    export PATH=${PATH}:/usr/X11/bin
-fi
-
-if test -d $HOME/miniconda3; then
-    export PATH=$HOME/miniconda3/bin:$PATH
 fi
 
 gpip() {
@@ -33,36 +27,19 @@ gpip() {
 }
 
 ##  For homebrew
-if test -d /usr/local/opt/ruby/lib; then
-  LDFLAGS="-L/usr/local/opt/ruby/lib "$LDFLAGS
-  CPPFLAGS="-I/usr/local/opt/ruby/include "$CPPFLAGS
+if test -d /opt/homebrew/opt/ruby/lib/pkgconfig; then
+  PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig":$PKG_CONFIG_PATH
 fi
-if test -d /usr/local/opt/openblas/lib; then
-  LDFLAGS="-L/usr/local/opt/openblas/lib "$LDFLAGS
-  CPPFLAGS="-I/usr/local/opt/openblas/include "$CPPFLAGS
-fi
-
-if test -d /usr/local/opt/ruby/lib/pkgconfig; then
-  PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig":$PKG_CONFIG_PATH
-fi
-if test -d /usr/local/opt/openblas/lib/pkgconfig; then
-  PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig":$PKG_CONFIG_PATH
-fi
-
-if test -d /usr/local/lib/ruby/gems/2.6.0/bin; then
-  PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
-fi
-
-if test -d $HOME/Library/Python/3.8/bin; then
-  PATH=$HOME/Library/Python/3.8/bin:${PATH}
+if test -d /opt/homebrew/opt/openblas/lib/pkgconfig; then
+  PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig":$PKG_CONFIG_PATH
 fi
 
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
 
-if test -f /usr/local/bin/gpgconf; then
+if test -f /opt/homebrew/bin/gpgconf; then
   export GPG_TTY="$(tty)"
-  export SSH_AUTH_SOCK=$(/usr/local/bin/gpgconf --list-dirs agent-ssh-socket)
-  /usr/local/bin/gpgconf --launch gpg-agent
+  export SSH_AUTH_SOCK=$(/opt/homebrew/bin/gpgconf --list-dirs agent-ssh-socket)
+  /opt/homebrew/bin/gpgconf --launch gpg-agent
   alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
 fi
 
@@ -78,8 +55,4 @@ if test -f ./src/personal/gruvbox/gruvbox_256palette_osx.sh; then
   source ./src/personal/gruvbox/gruvbox_256palette_osx.sh
 fi
 
-if test -f /usr/local/anaconda3/bin/conda; then
-  export PATH=/usr/local/anaconda3/bin:$PATH
-fi
-
-eval "$(/usr/libexec/path_helper)"
+##echo "Leaving zshenv -- path is $PATH"
