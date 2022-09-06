@@ -1,5 +1,25 @@
+##echo "Hit zshrc -- path is $PATH"
 # If you come from bash you might have to change your $PATH.
-export PATH=${PATH}:/sbin/:/usr/sbin
+##export PATH=${PATH}:/sbin/:/usr/sbin
+
+##  Rework how path is getting built up -- /etc/zprofile on mac calls the path_helper executable,
+##  which re-orders the paths and buries homebrew. Put this up at the top, otherwize oh-my-zsh can't
+##  find things and will complain.
+if test -d /opt/homebrew/sbin; then
+  PATH=/opt/homebrew/sbin:${PATH}
+fi
+
+if test -d /opt/homebrew/bin; then
+  PATH=/opt/homebrew/bin:${PATH}
+fi
+
+if test -d /usr/X11/bin; then
+  PATH=/usr/X11/bin:${PATH}
+fi
+if test -d /Users/steevesm/Library/Python/3.9/bin; then
+  PATH=/Users/steevesm/Library/Python/3.9/bin:${PATH}
+fi
+export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -104,32 +124,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-##if command -v colorls > /dev/null ; then
-##  LS='colorls'
-##else
-##  LS='ls'
-##fi
-##  Callum has base ls calling "-FHh", however colorls doesn't recognize two of the three....
-##alias ls="$LS"
-alias ll='colorls -l'
-alias lc='colorls -lA --sd'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-if test -f ~/.p10k.zsh; then
-  source ~/.p10k.zsh
+##  If we have starship, configure and run
+if test -f /usr/local/bin/starship -o -f $HOME/bin/starship; then
+  eval "$(starship init zsh)"
 fi
 
-##  At the moment the Homebrew python3 is Python 3.7.x, but boost-python3 and numpy both want python@3.8.
-##  Since python@3.8 is keg-only and doesn't symlink into /usr/local, trying this to see if things work.
-if test -d /usr/local/Cellar/python@3.8/3.8.2; then
-  PATH=/usr/local/Cellar/python@3.8/3.8.2/bin:${PATH}
-fi
-##  Add in for RDkit if it's installed. Should move this to a module.
-if test -d $HOME/RDkit/2020_03_01; then
-  RDBASE=$HOME/RDkit/2020_03_01
-  PYTHONPATH=$HOME/RDkit/2020_03_01/lib/python3.8/site-packages:${PYTHONPATH}
-  DYLD_LIBRARY_PATH=$RDBASE/lib:${DYLD_LIBRARY_PATH}
-  export RDBASE PYTHONPATH DYLD_LIBRARY_PATH
-fi
-
-eval "$(starship init zsh)"
+##echo "Leaving zshrc -- path is $PATH"

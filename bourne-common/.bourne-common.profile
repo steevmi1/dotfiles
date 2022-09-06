@@ -9,8 +9,20 @@ case "$(command -v vim)" in
   *)     VIM=vi  ;;
 esac
 
-export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
+if test -d $HOME/bin; then
+  PATH=$HOME/bin:${PATH}
+fi
+if test -d /opt/local/sbin; then
+  PATH=/opt/local/sbin:${PATH}
+fi
+if test -d /opt/local/bin; then
+  PATH=/opt/local/bin:${PATH}
+fi
+if test -d /opt/local/share/man; then
+  MANPATH=/opt/local/share/man:${MANPATH}
+fi
+
+export MANPATH PATH
 export EDITOR=$VIM
 export FCEDIT=$EDITOR
 export PAGER=less
