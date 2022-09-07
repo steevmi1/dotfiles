@@ -39,7 +39,12 @@ set shiftwidth=2      " tab width = 2 spaces
 set tabstop=2
 set softtabstop=2
 
-set termguicolors
+"set termguicolors
+if has('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 set pastetoggle=<F2>  " F2 to toggle paste mode
 nnoremap <leader>q gqip
