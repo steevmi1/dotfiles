@@ -3,8 +3,6 @@
 
 ##echo "Entering .bourne-common.rc...."
 ##echo "MANPATH is ${MANPATH}"
-=======
-##echo "Hit bourne-common.rc -- path is $PATH"
 
 LS='ls'
 if [ "$(uname)" = 'Linux' ] ; then
