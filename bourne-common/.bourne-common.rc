@@ -41,7 +41,7 @@ man() {
 }
 
 ssh-key-add() {
-  ssh-keyscan -H -t rsa,ed25519 $1 2>&1 | egrep -v '^#' | sort -u - ~/.ssh/known_hosts > $HOME/tmp/known_hosts.tmp
+  ssh-keyscan -H -t rsa,ed25519,ecdsa $1 2>&1 | egrep -v '^#' | sort -u - ~/.ssh/known_hosts > $HOME/tmp/known_hosts.tmp
   mv $HOME/tmp/known_hosts.tmp $HOME/.ssh/known_hosts
 }
 
