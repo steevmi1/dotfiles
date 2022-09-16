@@ -1,15 +1,7 @@
 format = """
-$username\
-$hostname\
-$shlvl\
-$directory\
-$python\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$time\
-$character"""
+$username$hostname$shlvl$directory\
+$git_branch$git_commit$git_state$git_status\n\
+$python$time$character """
 
 # Inserts a blank line between shell prompts
 add_newline = false
