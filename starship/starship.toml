@@ -1,7 +1,7 @@
 format = """
-$username$hostname$shlvl$directory\
+$username$hostname$battery$memory_usage$shlvl$directory\
 $git_branch$git_commit$git_state$git_status\n\
-$python$time$character """
+$python$aws$time$character """
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -11,6 +11,23 @@ command_timeout = 1000
 
 [aws]
 symbol = "  "
+
+[battery]
+##charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+disabled = false
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 90%
+threshold = 15
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 80
+style = "bold green"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
@@ -25,6 +42,8 @@ format = "in [$read_only]($read_only_style)[$path]($style) "
 read_only = " "
 style = "blue"
 truncation_length = 5
+truncate_to_repo = true
+truncation_symbol = "repo: "
 
 [git_branch]
 symbol = " "
@@ -53,12 +72,18 @@ disabled = false
 ssh_only = false
 format = "@[$localipv4](bold red) "
 
+#memory only alert >50%
 [memory_usage]
-symbol = " "
+format = "[Mem$symbol${ram_pct}|(${swap_pct})]($style) "
+threshold = 75
+style = "bright-red"
+disabled = false
+symbol = ""
 
 [python]
 symbol = " "
 pyenv_version_name = true
+python_binary = "python3"
 
 [rlang]
 symbol = "ﳒ "
@@ -73,7 +98,7 @@ time_format = "%F %R"
 
 [username]
 style_user = "green bold"
-style_root = "red_bold"
+style_root = "red bold"
 disabled = false
 show_always = true
 format = "[$user]($style) "
