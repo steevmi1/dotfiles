@@ -1,7 +1,7 @@
 format = """
-$username$hostname$battery$memory_usage$shlvl$directory\
-$git_branch$git_commit$git_state$git_status\n\
-$python$aws$time$character """
+$username$hostname$localip$time$directory$battery$memory_usage\n\
+$git_branch$git_commit$git_state$git_status\
+$python$aws$cmd_duration$character """
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -34,6 +34,11 @@ style = "bold green"
 success_symbol = "[➜](bold green)"
 error_symbol = "[✖](bold red)"
 
+[cmd_duration]
+min_time = 0 ##  Always show
+format = "took [$duration]($style) "
+show_milliseconds = true
+
 [conda]
 symbol = " "
 
@@ -48,11 +53,12 @@ truncation_symbol = "repo: "
 [git_branch]
 symbol = " "
 format = "[$symbol$branch]($style) "
+style = "bold blue"
 
 [git_commit]
 format = "[\\($hash$tag\\)]($style) "
 commit_hash_length = 4
-style = "bold white"
+style = "bold blue"
 
 [git_status]
 ahead      = "⇡${count}"
@@ -65,10 +71,11 @@ modified   = "!${count}"
 staged     = "+${count}"
 renamed    = "»${count}"
 deleted    = "✘${count}"
+style      = "bold blue"
 
 [hostname]
 ssh_only = false
-format = "on [$hostname](bold red) "
+format = "on [$hostname](bold red)"
 
 [line_break]
 disabled = false
@@ -76,6 +83,7 @@ disabled = false
 [localip]
 ssh_only = false
 format = "@[$localipv4](bold red) "
+disabled = false
 
 #memory only alert >50%
 [memory_usage]
