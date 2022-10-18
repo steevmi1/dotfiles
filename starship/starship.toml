@@ -41,6 +41,10 @@ show_milliseconds = true
 
 [conda]
 symbol = " "
+format = "via [$symbol$environment]($style)"
+style = "dim green"
+ignore_base = true
+disabled = false
 
 [directory]
 format = "in [$read_only]($read_only_style)[$path]($style) "
