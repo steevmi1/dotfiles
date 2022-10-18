@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
   name = Michael Steeves
-  email = steeves@raingods.net
+  email = michael@steeves.io
 
 [includeIf "gitdir:~/src/work/"]
   path = ~/src/work/.gitconfig
