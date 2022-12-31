@@ -5,14 +5,19 @@
 ##  Rework how path is getting built up -- /etc/zprofile on mac calls the path_helper executable,
 ##  which re-orders the paths and buries homebrew. Put this up at the top, otherwize oh-my-zsh can't
 ##  find things and will complain.
-if test -d /opt/homebrew/sbin; then
-  PATH=/opt/homebrew/sbin:${PATH}
-fi
 
-if test -d /opt/homebrew/bin; then
-  PATH=/opt/homebrew/bin:${PATH}
+if test -f /usr/local/bin/brew; then
+  ##  We're running homebrew on an older Mac......
+  PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+else
+  ##  See if we're running with a newer homebrew
+  if test -d /opt/homebrew/sbin; then
+    PATH=/opt/homebrew/sbin:${PATH}
+  fi
+  if test -d /opt/homebrew/bin; then
+    PATH=/opt/homebrew/bin:${PATH}
+  fi
 fi
-
 if test -d /usr/X11/bin; then
   PATH=/usr/X11/bin:${PATH}
 fi
