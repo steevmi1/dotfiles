@@ -4,6 +4,7 @@
 
 HISTFILE=$HOME/.ksh_history
 HISTSIZE=20000
+TERM=xterm-256color
 
 set -o emacs
 
