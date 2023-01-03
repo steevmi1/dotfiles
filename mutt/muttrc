@@ -1,15 +1,14 @@
 ##  Default account
 source ~/.mutt/account.net.raingods.steeves
 
-
-##folder-hook 'account.net.raingods.steeves' 'source ~/.mutt/account.net.raingods.steeves'
+folder-hook 'account.net.raingods.steeves' 'source ~/.mutt/account.net.raingods.steeves'
 ##folder-hook 'account.com.pair.msteeves' 'source ~/.mutt/account.com.pair.msteeves'
-##folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
+folder-hook 'account.com.gmail.michael.steeves' 'source ~/.mutt/account.com.gmail.michael.steeves'
 
 # Macros for switching accounts
-macro index <f1> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><sync-m
-macro index <f2> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><sync-mail
-macro index <f3> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><s
+macro index <f1> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.net.raingods.steeves<enter><sync-mailbox><enter><change-folder>!<enter>'
+macro index <f2> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.pair.msteeves<enter><sync-mailbox>'
+macro index <f3> '<enter-command>unmailboxes *<enter><enter-command>source ~/.mutt/account.com.gmail.michael.steeves<enter><sync-mailbox><enter><change-folder>!<enter>'
 
  set imap_check_subscribed = yes
  set imap_authenticators = plain
@@ -61,7 +60,7 @@ set   rfc2047_parameters
 set   auto_tag
 unset markers
 auto_view text/html
-alternative_order text/plain text/html
+##alternative_order text/plain text/html
 
 ignore *
 unignore from: to: cc: date: subject:
@@ -99,5 +98,8 @@ set mail_check_stats
 
 set folder_format = "%2C  %N  %f"
 
-source ~/.mutt/zenburn.muttrc
+##source ~/.mutt/zenburn.muttrc
+source ~/.mutt/gruvbox/colors-gruvbox-shuber.muttrc
+##  These colors are for neomutt, not mutt
+source ~/.mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
 source ~/.mutt/keys.muttrc
