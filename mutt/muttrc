@@ -99,7 +99,7 @@ set mail_check_stats
 set folder_format = "%2C  %N  %f"
 
 ##source ~/.mutt/zenburn.muttrc
-source ~/.mutt/gruvbox/colors-gruvbox-shuber.muttrc
+##source ~/.mutt/gruvbox/colors-gruvbox-shuber.muttrc
 ##  These colors are for neomutt, not mutt
-source ~/.mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
+##source ~/.mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
 source ~/.mutt/keys.muttrc
