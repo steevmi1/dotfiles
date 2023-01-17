@@ -25,7 +25,7 @@
 
 ;;  02 Name and e-mail
 (setq user-full-name "Michael Steeves"
-      user-mail-address "Michael_Steeves@vrtx.com")
+      user-mail-address "michael@steeves.io")
 
 ;;  10 Appearance
 (menu-bar-mode 0)
