@@ -42,6 +42,7 @@
                       :weight 'normal))
 
 (use-package gruvbox-theme
+  :ensure t
   :init
   (load-theme 'gruvbox-dark-hard t))
 
@@ -125,6 +126,17 @@
 (use-package company
   :config
   (global-set-key (kbd "<C-return>") 'company-complete))
+
+;; 80 R
+(use-package ess
+  :ensure t
+  :init (require 'ess-site))
+(use-package polymode
+  :ensure t)
+(use-package poly-markdown
+  :ensure t)
+(use-package poly-R
+  :ensure t)
 
 ;; 82 BASH
 (use-package lsp-mode
