@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 return {
-  font = wezterm.font('Inconsolata Nerd Font Mono'),
-  font_size = 16.0,
+  font = wezterm.font('B612 Mono'),
+  font_size = 13.25,
   color_scheme = "Gruvbox dark, hard (base16)",
   initial_rows = 45,
   initial_cols = 120,
