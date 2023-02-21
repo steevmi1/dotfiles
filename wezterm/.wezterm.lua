@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 return {
   font = wezterm.font('B612 Mono'),
   font_size = 13.25,
-  color_scheme = "Gruvbox dark, hard (base16)",
+  color_scheme = "Gruvbox light, medium (base16)",
   initial_rows = 45,
   initial_cols = 120,
   window_padding = {
