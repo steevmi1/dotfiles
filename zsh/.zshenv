@@ -43,8 +43,8 @@ if test -f /opt/homebrew/bin/gpgconf; then
   alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
 fi
 
-# Tell homebrew to not autoupdate every single time I run it (just once a week).
-export HOMEBREW_AUTO_UPDATE_SECS=604800
+##  Disable homebrew analytics for only Google
+export HOMEBREW_NO_GOOGLE_ANALYTICS=true
 
 alias wx='curl '\''wttr.in/North Easton\ MA\ US?m'\'''
 alias wx2='curl '\''v2.wttr.in/North Easton\ MA\ US?m'\'''
