@@ -46,8 +46,8 @@
   (set-scroll-bar-mode nil)
   (tool-bar-mode 0)
   (set-face-attribute 'default nil
-                      :family "Inconsolata Nerd Font"
-                      :height 161
+                      :family "B612 Mono"
+                      :height 141
                       :weight 'normal))
 
 (use-package gruvbox-theme
