@@ -1,29 +1,22 @@
 ##echo "Hit zshrc -- path is $PATH"
-# If you come from bash you might have to change your $PATH.
-##export PATH=${PATH}:/sbin/:/usr/sbin
 
 ##  Rework how path is getting built up -- /etc/zprofile on mac calls the path_helper executable,
 ##  which re-orders the paths and buries homebrew. Put this up at the top, otherwize oh-my-zsh can't
 ##  find things and will complain.
 
-if test -f /usr/local/bin/brew; then
-  ##  We're running homebrew on an older Mac......
-  PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+arch="$(uname -m)"
+if test $arch = "arm64"; then
+  HOMEBREW_PREFIX="/opt/homebrew"
 else
-  ##  See if we're running with a newer homebrew
-  if test -d /opt/homebrew/sbin; then
-    PATH=/opt/homebrew/sbin:${PATH}
-  fi
-  if test -d /opt/homebrew/bin; then
-    PATH=/opt/homebrew/bin:${PATH}
-  fi
+  HOMEBREW_PREFIX="/usr/local"
 fi
+
+PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:${PATH}
+
 if test -d /usr/X11/bin; then
   PATH=/usr/X11/bin:${PATH}
 fi
-if test -d /Users/steevesm/Library/Python/3.9/bin; then
-  PATH=/Users/steevesm/Library/Python/3.9/bin:${PATH}
-fi
+
 export PATH
 
 # Path to your oh-my-zsh installation.
@@ -140,19 +133,3 @@ elif test -f $HOME/bin/starship; then
 fi
 
 ##echo "Leaving zshrc -- path is $PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-##__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-##if [ $? -eq 0 ]; then
-##    eval "$__conda_setup"
-##else
-##    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-##        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-##    else
-##        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-##    fi
-##fi
-##unset __conda_setup
-# <<< conda initialize <<<
-
