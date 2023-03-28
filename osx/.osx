@@ -22,6 +22,18 @@ set -e
 ##sudo scutil --set LocalHostName "$computer_name"
 ##sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computer_name"
 
+if test ! -d $HOME/bin; then
+  mkdir $HOME/bin
+fi
+
+if test ! -d $HOME/tmp; then
+  mkdir $HOME/tmp
+fi
+
+if test ! -d $HOME/.local; then
+  mkdir $HOME/.local
+fi
+
 # dark mode
 defaults write NSGlobalDomain AppleInterfaceStyle Dark
 
