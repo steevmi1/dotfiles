@@ -8,7 +8,7 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/master-%r@%h:%p
   ControlPersist 300
-  #AddKeysToAgent yes
+  AddKeysToAgent no
   UseRoaming no
   HashKnownHosts yes
   VisualHostKey yes
