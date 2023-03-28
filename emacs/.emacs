@@ -62,9 +62,45 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 20 Global shortcuts and settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Navigate between buffers
+(global-set-key "\M-p" 'previous-buffer)
+(global-set-key "\M-n" 'next-buffer)
+
+;; Navigate between visible buffers (windows in emacs speak)
+(defun other-window-backward (&optional n)
+  (interactive "p")
+  (if n
+      (other-window (- n))
+    (other-frame -1)))
+(global-set-key "\C-x\C-n" 'other-window)
+(global-set-key "\C-x\C-p" 'other-window-backward)
+
+;; Revert
+(global-set-key  [ (f5) ] 'revert-buffer)
+(global-auto-revert-mode 1)
+(setq revert-without-query (list "\\.png$" "\\.svg$")
+      auto-revert-verbose nil)
+
+(global-set-key "\M- " 'hippie-expand)
+(global-set-key "\M-r" 'join-line)
 
 ;; Treat 'y' or <CR> as yes, 'n' as no.
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Minibuffer and buffer navigation
+(use-package counsel
+  :ensure t
+  :bind
+  ("C-."   . 'counsel-imenu)
+  ("C-c '" . 'projectile-grep)
+  ("C-c ," . 'counsel-imenu)
+  ("C-h f" . 'counsel-describe-function)
+  ("C-h v" . 'counsel-describe-variable)
+  ("C-o"   . 'counsel-outline)
+  ("C-x b" . 'counsel-switch-buffer))
+
+;; Sub word support
+(add-hook 'minibuffer-setup-hook 'subword-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 25 Reading & writing files
