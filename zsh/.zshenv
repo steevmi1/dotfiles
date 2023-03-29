@@ -2,9 +2,14 @@ setopt no_global_rcs
 
 ##echo "Hit zshenv -- path is $PATH"
 
+if test -d $HOME/Library/TinyTex/bin; then
+  PATH=${HOME}/Library/TinyTex/bin/universal-darwin:${PATH}
+fi
+
 if test -f $HOME/.bourne-common.profile; then
   source "$HOME/.bourne-common.profile"
 fi
+
 if test -f $HOME/.bourne-common.rc; then
   source "$HOME/.bourne-common.rc"
 fi
@@ -17,9 +22,6 @@ if test -f /opt/homebrew/opt/lmod/init/zsh; then
         module use $HOME/.local/modules
 ##        module load mac/homebrew
     fi
-    if test -d $HOME/.local/easybuild/modules; then
-        module use $HOME/.local/easybuild/modules/all
-    fi
 fi
 
 gpip() {
@@ -30,6 +32,7 @@ gpip() {
 if test -d /opt/homebrew/opt/ruby/lib/pkgconfig; then
   PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig":$PKG_CONFIG_PATH
 fi
+
 if test -d /opt/homebrew/opt/openblas/lib/pkgconfig; then
   PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig":$PKG_CONFIG_PATH
 fi
