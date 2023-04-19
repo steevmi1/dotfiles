@@ -21,6 +21,9 @@ fi
 if test -d /opt/local/share/man; then
   MANPATH=/opt/local/share/man:${MANPATH}
 fi
+if test -d /usr/local/bin; then
+  PATH=/usr/local/bin:${PATH}
+fi
 
 export MANPATH PATH
 export EDITOR=$VIM

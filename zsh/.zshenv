@@ -2,9 +2,9 @@ setopt no_global_rcs
 
 ##echo "Hit zshenv -- path is $PATH"
 
-if test -d $HOME/Library/TinyTex/bin; then
-  PATH=${HOME}/Library/TinyTex/bin/universal-darwin:${PATH}
-fi
+##if test -d $HOME/Library/TinyTex/bin; then
+##  PATH=${HOME}/Library/TinyTex/bin/universal-darwin:${PATH}
+##fi
 
 if test -f $HOME/.bourne-common.profile; then
   source "$HOME/.bourne-common.profile"
