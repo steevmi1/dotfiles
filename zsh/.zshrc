@@ -133,3 +133,6 @@ elif test -f $HOME/bin/starship; then
 fi
 
 ##echo "Leaving zshrc -- path is $PATH"
+
+# Created by `pipx` on 2023-04-05 12:33:34
+export PATH="$PATH:/Users/steevesm/.local/bin"
