@@ -1,14 +1,30 @@
+-- Pull in the wezterm API
 local wezterm = require 'wezterm'
-return {
-  font = wezterm.font('B612 Mono'),
-  font_size = 13.25,
-  color_scheme = "Gruvbox dark, medium (base16)",
-  initial_rows = 45,
-  initial_cols = 120,
-  window_padding = {
+
+-- This table will hold the configuration.
+local config = {}
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+-- This is where you actually apply your config choices
+
+config.color_scheme = "Gruvbox dark, pale (base16)"
+config.default_cwd = "/Users/steevesm/"
+config.font = wezterm.font 'B612 Mono'
+config.font_size = 12.25
+config.initial_rows = 45
+config.initial_cols = 120
+config.window_padding = {
     left = 3,
     right = 3,
     top = 3,
     bottom = 3,
-  },
-}
+  }
+
+return config
+
+
