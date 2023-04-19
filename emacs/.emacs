@@ -47,7 +47,7 @@
   (tool-bar-mode 0)
   (set-face-attribute 'default nil
                       :family "B612 Mono"
-                      :height 141
+                      :height 131
                       :weight 'normal))
 
 (use-package gruvbox-theme
