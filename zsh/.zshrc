@@ -126,8 +126,8 @@ source $ZSH/oh-my-zsh.sh
 ##  If we have starship, configure and run
 if test -f /usr/local/bin/starship; then
   eval "$(/usr/local/bin/starship init zsh)"
-elif test -f /opt/local/bin/starship; then
-  eval "$(/opt/local/bin/starship init zsh)"
+elif test -f /opt/homebrew/bin/starship; then
+  eval "$(/opt/homebrew/bin/starship init zsh)"
 elif test -f $HOME/bin/starship; then
   eval "$($HOME/bin/starship init zsh)"
 fi
