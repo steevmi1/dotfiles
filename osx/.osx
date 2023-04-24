@@ -22,6 +22,7 @@ set -e
 ##sudo scutil --set LocalHostName "$computer_name"
 ##sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computer_name"
 
+fancy_echo "Creating local directories...."
 if test ! -d $HOME/bin; then
   mkdir $HOME/bin
 fi
@@ -34,6 +35,130 @@ if test ! -d $HOME/.local; then
   mkdir $HOME/.local
 fi
 
+if test ! -d $HOME/.config; then
+  mkdir $HOME/.config
+fi
+
+if test ! -d $HOME/.ssh; then
+  mkdir $HOME/.ssh
+fi
+chmod 0700 $HOME/.ssh
+
+if test ! -d $HOME/src; then
+  mkdir $HOME/src
+else
+  if test ! -d $HOME/src/work; then
+    mkdir $HOME/src/work
+  fi
+  if test ! -d $HOME/src/personal; then
+    mkdir $HOME/src/personal
+  fi
+fi
+
+##  This doesn't work too well this way, so do this by hand.
+##fancy_echo "Installing oh-my-zsh...."
+##if test ! -d $HOME/.oh-my-zsh; then
+##  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+##  fancy_echo "Cleaning up oh-my-zshrc modified $HOME/.zshrc...."
+##  mv $HOME/.zshrc $HOME/.zshrc.$(/bin/date '+%Y%m%d')
+##fi
+
+fancy_echo "Setting up dotfiles...."
+cd $HOME/src/personal/dotfiles
+if test ! -f $HOME/.bash_profile; then
+  ln -s $(pwd)/bash/.bash_profile $HOME
+fi
+if test ! -f $HOME/.bashrc; then
+  ln -s $(pwd)/bash/.bashrc $HOME
+fi
+if test ! -f $HOME/.bourne-common.profile; then
+  ln -s $(pwd)/bourne-common/.bourne-common.profile $HOME
+fi
+if test ! -f $HOME/.bourne-common.rc; then
+  ln -s $(pwd)/bourne-common/.bourne-common.rc $HOME
+fi
+if test ! -f $HOME/.emacs; then
+  ln -s $(pwd)/emacs/.emacs $HOME
+fi
+if test ! -f $HOME/.gitconfig; then
+  ln -s $(pwd)/git/.gitconfig $HOME
+fi
+if test ! -f $HOME/.kshrc; then
+  ln -s $(pwd)/ksh/.kshrc $HOME
+fi
+if test ! -f $HOME/.profile; then
+  ln -s $(pwd)/ksh/.profile $HOME
+fi
+if test ! -f $HOME/.screenrc; then
+  ln -s $(pwd)/screen/.screenrc $HOME
+fi
+if test ! -f $HOME/.ssh/config; then
+  ln -s $(pwd)/ssh/config $HOME/.ssh/config
+fi
+if test ! -f $HOME/.config/starship.toml; then
+  ln -s $(pwd)/starship/starship.toml $HOME/.config/
+fi
+if test ! -f $HOME/.tmux.conf; then
+  ln -s $(pwd)/tmux/.tmux.conf $HOME
+fi
+if test ! -f $HOME/.exrc; then
+  ln -s $(pwd)/vi/.exrc $HOME
+fi
+if test ! -f $HOME/.vimrc; then
+  ln -s $(pwd)/vim/.vimrc $HOME
+fi
+if test ! -f $HOME/.wezterm.lua; then
+  ln -s $(pwd)/wezterm/.wezterm.lua $HOME
+fi
+if test ! -f $HOME/.zshenv; then
+  ln -s $(pwd)/zsh/.zshenv $HOME
+fi
+if test ! -f $HOME/.zshrc; then
+  ln -s $(pwd)/zsh/.zshrc $HOME
+fi
+
+if ! command -v "brew" > /dev/null; then
+  fancy_echo "Installing homebrew...."
+  /bin/bash -c \
+      "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew install --cask arc
+brew install --cask emacs
+brew install --cask rstudio
+brew install --cask wezterm
+
+brew install binutils
+brew install coreutils
+brew install diffutils
+brew install findutils
+brew install ksh
+brew install r
+brew install screen
+brew install tmux
+brew install vim
+brew install watch
+brew install wget
+brew install vim
+brew install zsh
+
+brew install aspell
+brew install awscli
+brew install git
+brew install glow
+brew install jq
+brew install less
+brew install lmod
+brew install openssl
+brew install pipx
+brew install starship
+brew install yq
+
+brew tap homebrew/cask-fonts
+brew install font-b612
+brew install font-inconsolata-nerd-font
+
+fancy_echo "Setting up OS X defaults....."
 # dark mode
 defaults write NSGlobalDomain AppleInterfaceStyle Dark
 
@@ -85,8 +210,8 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextr
 # don't hide files
 defaults write com.apple.finder AppleShowAllFiles TRUE
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
+# Show the $HOME/Library folder
+chflags nohidden $HOME/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
