@@ -41,7 +41,7 @@ man() {
 }
 
 ssh-key-add() {
-  ssh-keyscan -H -t rsa,ed25519,ecdsa $1 2>&1 | egrep -v '^#' | sort -u - ~/.ssh/known_hosts > $HOME/tmp/known_hosts.tmp
+  ssh-keyscan -t rsa,ed25519,ecdsa $1 2>&1 | egrep -v '^#' | sort -u - ~/.ssh/known_hosts > $HOME/tmp/known_hosts.tmp
   mv $HOME/tmp/known_hosts.tmp $HOME/.ssh/known_hosts
 }
 
@@ -85,6 +85,11 @@ fi
 ##}
 ##trap end_agent EXIT
 ##set +x
+
+export NVM_HOME=$HOME/.nvm
+if test -s /opt/homebrew/opt/nvm/nvm.sh; then
+  . /opt/homebrew/opt/nvm/nvm.sh
+fi
 
 ##echo "Exiting .bourne-common.rc...."
 ##echo "MANPATH is ${MANPATH}"

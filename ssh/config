@@ -10,7 +10,7 @@ Host *
   ControlPersist 300
   AddKeysToAgent no
   UseRoaming no
-  HashKnownHosts yes
+  HashKnownHosts no
   VisualHostKey yes
   PasswordAuthentication no
   ChallengeResponseAuthentication no
