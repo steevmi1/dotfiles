@@ -65,6 +65,8 @@ fi
 
 fancy_echo "Setting up dotfiles...."
 cd $HOME/src/personal/dotfiles
+
+##  This is a really bad way to do this -- there are other solutions, need to look at those.
 if test ! -f $HOME/.bash_profile; then
   ln -s $(pwd)/bash/.bash_profile $HOME
 fi
@@ -119,14 +121,18 @@ fi
 
 if ! command -v "brew" > /dev/null; then
   fancy_echo "Installing homebrew...."
+  ##  Note that on the corporate laptop this fails until you add your account into the sudoers file
   /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew install --cask arc
+brew install --cask dcv-viewer
 brew install --cask emacs
+brew install --cask nomachine
 brew install --cask rstudio
 brew install --cask wezterm
+brew install --cask xquartz
 
 brew install binutils
 brew install coreutils
@@ -152,11 +158,23 @@ brew install lmod
 brew install openssl
 brew install pipx
 brew install starship
+brew install terraform
 brew install yq
 
 brew tap homebrew/cask-fonts
 brew install font-b612
 brew install font-inconsolata-nerd-font
+
+brew install hashicorp/tap/terraform-ls
+##  Install TinyTex and get the environment up and running
+curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+
+##  Install what we need
+tlmgr install capt-of
+tlmgr install enumitem
+tlmgr install grfext
+tlmgr install ulem
+tlmgr install wrapfig
 
 fancy_echo "Setting up OS X defaults....."
 # dark mode
