@@ -1,5 +1,6 @@
 ##echo "Entering .bashrc...."
 ##echo "MANPATH is ${MANPATH}"
+##echo "PATH is ${PATH}"
 
 ##  Results in adding /usr/share/man twice, but at least makes sure that I have system man pages in there.
 if test -z $MANPATH; then
@@ -7,8 +8,6 @@ if test -z $MANPATH; then
 else
   export MANPATH=${MANPATH}:/usr/share/man
 fi
-
-[ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 
 source "$HOME/.bourne-common.profile"
 source "$HOME/.bourne-common.rc"
@@ -42,5 +41,9 @@ fi
 if test -f $HOME/bin/starship; then
     eval "$(starship init bash)"
 fi
+
+[ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
+
 ##echo "Exiting .bashrc...."
+##echo "PATH is ${PATH}"
 ##echo "MANPATH is ${MANPATH}"

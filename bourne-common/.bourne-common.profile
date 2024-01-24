@@ -3,6 +3,7 @@
 
 ##echo "Entering .bourne-common.profile...."
 ##echo "MANPATH is ${MANPATH}"
+##echo "PATH is ${PATH}"
 
 case "$(command -v vim)" in
   */vim) VIM=vim ;;
@@ -21,9 +22,9 @@ fi
 if test -d /opt/local/share/man; then
   MANPATH=/opt/local/share/man:${MANPATH}
 fi
-if test -d /usr/local/bin; then
-  PATH=/usr/local/bin:${PATH}
-fi
+##if test -d /usr/local/bin; then
+##  PATH=/usr/local/bin:${PATH}
+##fi
 
 export MANPATH PATH
 export EDITOR=$VIM
@@ -37,4 +38,5 @@ export CLICOLOR=1
 export GPG_TTY=$(tty)
 
 ##echo "Exiting .bourne-common.profile...."
+##echo "PATH is ${PATH}"
 ##echo "MANPATH is ${MANPATH}"

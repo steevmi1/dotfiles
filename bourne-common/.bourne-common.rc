@@ -3,6 +3,7 @@
 
 ##echo "Entering .bourne-common.rc...."
 ##echo "MANPATH is ${MANPATH}"
+##echo "PATH is ${PATH}"
 
 LS='ls'
 if [ "$(uname)" = 'Linux' ] ; then
@@ -92,4 +93,5 @@ if test -s /opt/homebrew/opt/nvm/nvm.sh; then
 fi
 
 ##echo "Exiting .bourne-common.rc...."
+##echo "PATH is ${PATH}"
 ##echo "MANPATH is ${MANPATH}"
