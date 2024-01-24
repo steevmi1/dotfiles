@@ -39,16 +39,6 @@ fi
 
 export LDFLAGS CPPFLAGS PKG_CONFIG_PATH PATH
 
-if test -f /opt/homebrew/bin/gpgconf; then
-  export GPG_TTY="$(tty)"
-  export SSH_AUTH_SOCK=$(/opt/homebrew/bin/gpgconf --list-dirs agent-ssh-socket)
-  /opt/homebrew/bin/gpgconf --launch gpg-agent
-  alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null;ssh"
-fi
-
-##  Disable homebrew analytics for only Google
-export HOMEBREW_NO_GOOGLE_ANALYTICS=true
-
 alias wx='curl '\''wttr.in/North Easton\ MA\ US?m'\'''
 alias wx2='curl '\''v2.wttr.in/North Easton\ MA\ US?m'\'''
 alias wxt='curl '\''wttr.in/North Easton\ MA\ US'\''\?format=3m'

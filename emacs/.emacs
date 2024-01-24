@@ -6,10 +6,10 @@
 ;;  01 For basic package management
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("nongnu" . "https://elpa.nongnu.org/nongnu/"))
-      gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+(unless (assoc-default "nongnu" package-archives)
+  (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t))
 
 ;; Ensure use-package is there
 (condition-case nil
@@ -56,8 +56,8 @@
   (load-theme 'gruvbox-dark-hard t))
 
 (use-package doom-modeline
-  :hook
-  (after-init . doom-modeline-mode))
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 20 Global shortcuts and settings
@@ -158,6 +158,7 @@
 (add-hook 'log-edit-hook (lambda () (flyspell-mode 1)))
 
 (use-package magit
+  :ensure t
   :config
   (setq magit-log-arguments '("-n256" "--graph" "--decorate" "--color")
         ;; Show diffs per word, looks nicer!
@@ -176,6 +177,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ispell
+  :ensure t
   :init
   (setq ispell-program-name "aspell"
         ispell-list-command "list"
@@ -188,13 +190,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; As listed on https://github.com/emacs-lsp/lsp-java#quick-start
-(use-package projectile)
+(use-package projectile
+  :ensure t)
 (use-package counsel-projectile
+  :ensure t
   :after projectile
   :bind
   (("C-c p f" . counsel-projectile-find-file)))
-(use-package flycheck)
+(use-package flycheck
+  :ensure t)
 (use-package yasnippet
+  :ensure t
   :config
   (setq yas/root-directory '("~/.emacs.d/snippets")
         yas-indent-line 'fixed)
@@ -202,6 +208,7 @@
   )
 
 (use-package lsp-mode
+  :ensure t
   :hook (
          (lsp-mode . lsp-enable-which-key-integration)
          (terraform-mode . lsp-deferred))
@@ -217,8 +224,10 @@
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-idle-delay 0.500)
   )
-(use-package hydra)
+(use-package hydra
+  :ensure t)
 (use-package company
+  :ensure t
   :config
   (global-set-key (kbd "<C-return>") 'company-complete))
 
@@ -269,12 +278,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 84 YAML
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package yaml-mode)
+(use-package yaml-mode
+  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 85 Org
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package org
+  :ensure t
   :init
   (setq org-clock-mode-line-total 'today
         org-fontify-quote-and-verse-blocks t
@@ -294,6 +305,7 @@
    ("\C-cu" . tkj/org-update-agenda-files))
 
 (use-package org-bullets
+  :ensure t
   :init
   (setq org-bullets-bullet-list '("❯" "❯❯" "❯❯❯" "❯❯❯❯" "❯❯❯❯❯"))
 

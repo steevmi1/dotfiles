@@ -12,7 +12,7 @@ end
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = "Gruvbox dark, hard (base16)"
+config.color_scheme = "Gruvbox light, soft (base16)"
 config.default_cwd = "/Users/steevesm/"
 config.font = wezterm.font 'Inconsolata Nerd Font Mono'
 config.font_size = 15.25
