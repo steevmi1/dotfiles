@@ -16,9 +16,9 @@ end)
 
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Dracula'
+    return 'Gruvbox dark, pale (base16)'
   else
-    return 'Piatto Light'
+    return 'Gruvbox light, medium (base16)'
   end
 end
 
@@ -68,7 +68,7 @@ return {
   adjust_window_size_when_changing_font_size = false,
   color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
   font = wezterm.font 'Inconsolata Nerd Font Mono',
-  font_size = 13.0,
+  font_size = 15.0,
   hide_tab_bar_if_only_one_tab = true,
   enable_wayland = true,
   leader = { key = 'a', mods = 'CTRL' },
