@@ -138,21 +138,25 @@ elif test -f /opt/local/bin/starship; then
 elif test -f $HOME/bin/starship; then
   eval "$($HOME/bin/starship init zsh)"
 fi
-
-##echo "Leaving zshrc -- path is $PATH"
-
+#
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-##__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-##if [ $? -eq 0 ]; then
-##    eval "$__conda_setup"
-##else
-##    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-##        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-##    else
-##        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-##    fi
-##fi
-##unset __conda_setup
+__conda_setup="$('/Users/mds/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/mds/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/Users/mds/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/mds/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/Users/mds/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/Users/mds/mambaforge/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
+
+##echo "Leaving zshrc -- path is $PATH"
 
