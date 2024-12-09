@@ -46,7 +46,7 @@
   (set-scroll-bar-mode nil)
   (tool-bar-mode 0)
   (set-face-attribute 'default nil
-                      :family "B612 Mono"
+                      :family "Inconsolata Nerd Font Mono"
                       :height 141
                       :weight 'normal))
 
@@ -56,6 +56,7 @@
   (load-theme 'gruvbox-dark-hard t))
 
 (use-package doom-modeline
+  :ensure t
   :hook
   (after-init . doom-modeline-mode))
 
@@ -119,18 +120,19 @@
 (add-hook 'log-edit-hook (lambda () (flyspell-mode 1)))
 
 (use-package magit
+  :ensure t
   :config
   (setq magit-log-arguments '("-n256" "--graph" "--decorate" "--color")
         ;; Show diffs per word, looks nicer!
         magit-diff-refine-hunk t))
 
-(use-package git-gutter+
-  :ensure t
-  :config
-  (setq git-gutter+-disabled-modes '(org-mode))
-  ;; Move between local changes
-  (global-set-key (kbd "M-<up>") 'git-gutter+-previous-hunk)
-  (global-set-key (kbd "M-<down>") 'git-gutter+-next-hunk))
+;;(use-package git-gutter+
+;;  :ensure t
+;;  :config
+;;  (setq git-gutter+-disabled-modes '(org-mode))
+;;  ;; Move between local changes
+;;  (global-set-key (kbd "M-<up>") 'git-gutter+-previous-hunk)
+;;  (global-set-key (kbd "M-<down>") 'git-gutter+-next-hunk))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 50 Text buffers
@@ -149,13 +151,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; As listed on https://github.com/emacs-lsp/lsp-java#quick-start
-(use-package projectile)
+(use-package projectile
+ :ensure t)
 (use-package counsel-projectile
   :after projectile
   :bind
   (("C-c p f" . counsel-projectile-find-file)))
-(use-package flycheck)
+(use-package flycheck
+ :ensure t)
 (use-package yasnippet
+  :ensure t
   :config
   (setq yas/root-directory '("~/.emacs.d/snippets")
         yas-indent-line 'fixed)
@@ -176,8 +181,10 @@
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-idle-delay 0.500)
   )
-(use-package hydra)
+(use-package hydra
+ :ensure t)
 (use-package company
+  :ensure t
   :config
   (global-set-key (kbd "<C-return>") 'company-complete))
 
@@ -220,7 +227,8 @@
 ;; 84 YAML
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package yaml-mode)
+(use-package yaml-mode
+ :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 85 Org
@@ -246,6 +254,7 @@
    ("\C-cu" . tkj/org-update-agenda-files))
 
 (use-package org-bullets
+  :ensure t
   :init
   (setq org-bullets-bullet-list '("❯" "❯❯" "❯❯❯" "❯❯❯❯" "❯❯❯❯❯"))
 
