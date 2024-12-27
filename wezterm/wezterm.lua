@@ -1,10 +1,10 @@
 local wezterm = require 'wezterm'
 
 wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
-  local zoomed = ' 🗗 '
-  if tab.active_pane.is_zoomed then
-    zoomed = ' 🗖 '
-  end
+--  local zoomed = ' 🗗 '
+--  if tab.active_pane.is_zoomed then
+--    zoomed = ' 🗖 '
+--  end
 
   local index = ''
   if #tabs > 1 then
